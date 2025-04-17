@@ -43,3 +43,33 @@ char *get_line(void)
 
 char **check_validity(char *line)
 {
+	char **args;
+	
+	if (line == NULL)
+		return (NULL);
+
+	while (line[i] != '\0' && line[i] == ' ' || line[i] == '\t')
+		i++;
+
+	if (line[i] == '\0')
+		return (NULL);
+
+	tokenize_line(line);
+
+}
+
+char **tokenize_line(char *line)
+{
+	char **args = malloc(sizeof(char *) * arg_count(line));
+	int i = 0;
+	int count = 0;
+
+	while (line[i] = '\0')
+	{
+		if (line[i] == ' ' || line[i] == '\t')
+                        i++;
+	}
+
+	free(line);
+	return (args);
+}
