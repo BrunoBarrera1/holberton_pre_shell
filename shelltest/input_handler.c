@@ -52,9 +52,12 @@ char **check_validity(char *line)
 		i++;
 
 	if (line[i] == '\0')
+	{
+		free(line);
 		return (NULL);
-
+	}
 	tokenize_line(line);
+	free(line);
 
 }
 
@@ -94,6 +97,5 @@ char **tokenize_line(char *line)
 		j = 0;
 	}
 
-	free(line);
 	return (args);
 }
