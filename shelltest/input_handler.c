@@ -61,13 +61,37 @@ char **check_validity(char *line)
 char **tokenize_line(char *line)
 {
 	char **args = malloc(sizeof(char *) * arg_count(line));
-	int i = 0;
-	int count = 0;
+	int i = 0, j = 0;
+	int word = 0;
+
+	if (args == NULL)
+		return (NULL);
 
 	while (line[i] = '\0')
 	{
 		if (line[i] == ' ' || line[i] == '\t')
+		{
                         i++;
+			continue;
+		}
+
+		*args[word] = malloc(sizeof(char) * _wlen(line[i]));
+		if (*args[word] == NULL)
+		{
+			for (i = 0; i < word; i++)
+				free(*args[i]);
+			free(args);
+			return (NULL);
+		}
+
+		while (line[i] > 32 && line[i] < 127)
+		{
+			args[word][j] = line[i];
+			j++;
+			i++;
+		}
+		word++;
+		j = 0;
 	}
 
 	free(line);
