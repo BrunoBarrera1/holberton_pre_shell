@@ -17,15 +17,13 @@ int main()
 		printf("#cisfun$ ");
 
 		if (fgets(input, MAX_INPUT, stdin) == NULL)
-		{
 			break;
-		}
 
 		input[strcspn(input, "\n")] = '\0';
 		
 		if (strlen(input) == 0) continue;
 
-		pid_t pid = fork();
+		 pid = fork();
 
 		if (pid == 0)
 		{
