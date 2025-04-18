@@ -18,4 +18,14 @@ int arg_count(char *line)
                 }
 
         }
+	return (count);
+}
+
+int _wlen(char *line)
+{
+	int i = 0;
+
+	while (line[i] > 32 && line[i] < 127)
+                                i++;
+	return (i);
 }
